@@ -1,0 +1,110 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".basicModalLG">
+    Crear Novedades
+</button>
+<hr>
+
+<!-- <form [formGroup]="miFiltro" (submit)="filterById()">
+    <label>
+        Min
+        <input type="number" name="min" id="min" formControlName="min" />
+    </label>
+    <label>
+        Max
+        <input type="number" name="max" id="max" formControlName="max" />
+    </label>
+    <button class="btn btn-primary" type="submit">Filter by ID</button>
+</form>
+<br /> -->
+
+<!-- <div class="dt-buttons">
+    <a class="dt-button" tabindex="0" aria-controls="{table-id}">
+        <span>Button 1</span>
+    </a>
+    <a class="dt-button" tabindex="0" aria-controls="{table-id}">
+        <span>Button 2</span>
+    </a>
+    ...
+</div> -->
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody  >
+        <tr *ngFor="let item of novedades">
+            <td>{{item.telegramUser}}</td>
+            <td>{{item.nombre}}</td>
+            <td>
+                {{item.textoImg}}
+            </td>
+            <td>
+                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
+                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
+            </td>
+        </tr>
+        
+    </tbody>
+    
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade basicModalLG" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Crear Novedad</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form [formGroup]="miFormulario" (ngSubmit)="agregar()">
+                    <div class="row">
+                        <div class="col">
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="First name"
+                            formControlName="tipo"
+                           
+                            >
+                        </div>
+                        <div class="col">
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Last name"
+                            formControlName="fecha"
+                            >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="First name"
+                            formControlName="descripcion"
+                            >
+                        </div>
+                       
+                    </div>
+                   
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>

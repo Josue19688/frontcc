@@ -1,0 +1,17 @@
+
+.pointer{
+    cursor: pointer;
+}
+
+.online{
+    color: white;
+    background: rgb(38, 234, 38);
+    border-radius: 5px;
+    padding: 4px 4px;
+}
+.offline{
+    color: white;
+    background: rgb(255, 21, 17);
+    border-radius: 5px;
+    padding: 4px 4px;
+}

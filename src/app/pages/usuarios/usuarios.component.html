@@ -1,0 +1,83 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".basicModalLG">
+    Crear Usuarios
+</button>
+<hr>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody  >
+        <tr *ngFor="let item of users">
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.rol}}</td>
+            <td>{{item.estado}}</td>
+            <td>
+                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
+                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
+            </td>
+        </tr>
+        
+    </tbody>
+    
+</table>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade basicModalLG" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Crear Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
