@@ -27,11 +27,46 @@ export class WesocketsService {
     });
   }
 
+  
+  /**
+   * Evento que se encargara de emitir todos
+   * los eventos
+   */
+
+  emit(evento:string, payload?:any, callback?:any){
+    //console.log('Emitiendo evento',payload);
+
+    //con esto emitimos el evento al backend
+    this.socket.emit(evento,payload,callback);
+  }
+
+  /*
+ *ESTE METODO SE ENCARGARA DE ESCUCHAR TODOS LOS EVENTOS DEL SERVER
+  */
+ listen(evento:string){
+
+  return this.socket.fromEvent(evento);
+
+  }
+
+  
+  
+
   loginWS(nombre:string){
-    this.socket.emit('configurar-usuario',{nombre:nombre},(resp:any)=>{
-      console.log(resp)
+    return new Promise((resolve:any, reject:any)=>{
+      this.emit('configurar-usuario',{nombre},(resp:any)=>{
+
+        // this.usuario=new Usuario(nombre);
+        // this.guardarStorage();
+        //validar la respuesta que obtengamos del servidor
+
+        resolve();
+      })
     })
   }
 
+  getUsuario(){
+    return this.usuario;
+  }
 
 }

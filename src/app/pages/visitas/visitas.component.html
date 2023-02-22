@@ -1,242 +1,227 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".basicModalLG">
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".basicModalLG">
     Crear Visitas
 </button>
-<hr>
-<table datatable id="example" class="table table-striped" style="width:100%">
+<hr> -->
+<!-- <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Accion</th>
+            <th>Nombre</th>
+            <th>Dpi</th>
+            <th>Persona Visita</th>
+            <th>Empresa</th>
+            <th>Hora Ingreso </th>
+            <th>Hora Salida</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011-04-25</td>
-            <td>$320,800</td>
+        <tr *ngFor="let item of visitas" >
+            <td>{{item.nombre}}</td>
+            <td>{{item.dpi}}</td>
+            <td>{{item.personaVista}}</td>
+            <td>{{item.empresa}}</td>
+            <td>{{item.horaEntrada}}</td>
+            <td>{{item.horaSalida}}</td>
+            <td>{{item.descripcion}}</td>
             <td>
                 <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
                 <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
             </td>
         </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011-07-25</td>
-            <td>$170,750</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td>2009-01-12</td>
-            <td>$86,000</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>Edinburgh</td>
-            <td>22</td>
-            <td>2012-03-29</td>
-            <td>$433,060</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Airi Satou</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>33</td>
-            <td>2008-11-28</td>
-            <td>$162,700</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Brielle Williamson</td>
-            <td>Integration Specialist</td>
-            <td>New York</td>
-            <td>61</td>
-            <td>2012-12-02</td>
-            <td>$372,000</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Herrod Chandler</td>
-            <td>Sales Assistant</td>
-            <td>San Francisco</td>
-            <td>59</td>
-            <td>2012-08-06</td>
-            <td>$137,500</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Rhona Davidson</td>
-            <td>Integration Specialist</td>
-            <td>Tokyo</td>
-            <td>55</td>
-            <td>2010-10-14</td>
-            <td>$327,900</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Colleen Hurst</td>
-            <td>Javascript Developer</td>
-            <td>San Francisco</td>
-            <td>39</td>
-            <td>2009-09-15</td>
-            <td>$205,500</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Sonya Frost</td>
-            <td>Software Engineer</td>
-            <td>Edinburgh</td>
-            <td>23</td>
-            <td>2008-12-13</td>
-            <td>$103,600</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Jena Gaines</td>
-            <td>Office Manager</td>
-            <td>London</td>
-            <td>30</td>
-            <td>2008-12-19</td>
-            <td>$90,560</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Quinn Flynn</td>
-            <td>Support Lead</td>
-            <td>Edinburgh</td>
-            <td>22</td>
-            <td>2013-03-03</td>
-            <td>$342,000</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Charde Marshall</td>
-            <td>Regional Director</td>
-            <td>San Francisco</td>
-            <td>36</td>
-            <td>2008-10-16</td>
-            <td>$470,600</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Haley Kennedy</td>
-            <td>Senior Marketing Designer</td>
-            <td>London</td>
-            <td>43</td>
-            <td>2012-12-18</td>
-            <td>$313,500</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Tatyana Fitzpatrick</td>
-            <td>Regional Director</td>
-            <td>London</td>
-            <td>19</td>
-            <td>2010-03-17</td>
-            <td>$385,750</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Michael Silva</td>
-            <td>Marketing Designer</td>
-            <td>London</td>
-            <td>66</td>
-            <td>2012-11-27</td>
-            <td>$198,500</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-       
-        <tr>
-            <td>Michael Bruce</td>
-            <td>Javascript Developer</td>
-            <td>Singapore</td>
-            <td>29</td>
-            <td>2011-06-27</td>
-            <td>$183,000</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>Donna Snider</td>
-            <td>Customer Support</td>
-            <td>New York</td>
-            <td>27</td>
-            <td>2011-01-25</td>
-            <td>$112,000</td>
-            <td>
-                <a href="#" class="btn btn-outline-info"><i class="bx bx-edit-alt"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bx bx-trash"></i></a>
-            </td>
-        </tr>
+     
     </tbody>
-    
-</table>
+
+</table> -->
+
+<div class="todo-content-area" style="max-width: 100%;">
+    <div class="sidebar-left">
+        <div class="sidebar">
+            <div class="sidebar-content d-flex email-sidebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -25px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 25px;">
+                <div class="todo-menu">
+                    <button type="button" class="btn btn-primary btn-color btn-block compose-btn mb-4"  data-toggle="modal" data-target=".basicModalLG">
+                        <i class="bx bx-plus"></i> Nueva Visita
+                    </button>
+
+                    <div class="list-group list-group-messages">
+                        <a href="Javascript:void(0)" class="list-group-item" (click)="showNuevas()">
+                            <i class="bx bx-list-ol"></i>
+                            Nuevas
+                            <span class="badge badge-success d-inline-block">{{visitas.length}}</span>
+                        </a>
+                    </div>
+
+                
+                    <label class="d-block list-group-label text-uppercase">Historial</label>
+
+                    <div class="list-group list-group-messages">
+                        <a href="Javascript:void(0)" class="list-group-item" (click)="showProceso()">
+                            <i class="bx bx-star"></i>
+                            En proceso
+                        </a>
+
+                        <a href="Javascript:void(0)" class="list-group-item" (click)="showFinalizadas()">
+                            <i class="bx bx-check-double"></i>
+                            Finalizadas 
+                        </a>
+                    </div>
+
+                   
+
+                   
+                </div>
+            </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 578px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;"></div></div></div>
+        </div>
+    </div>
+
+    <div class="content-right" >
+        <div class="todo-area">
+            <div class="todo-list-wrapper">
+                <div class="todo-list">
+                    <div class="todo-list-header d-flex align-items-center">
+                        <div class="header-left d-flex align-items-center mr-3">
+                            <div class="checkbox mr-3"></div>
+                        </div>
+                        <div class="header-right w-100" style="padding-bottom: 15px;">
+                            <h1>LISTADO DE  VISITAS</h1>
+                        </div>
+                    </div>
+
+                    <ul class="list-wrapper" data-simplebar="init"  *ngIf="element == true">
+                        <div class="simplebar-wrapper" style="margin: 0px;">
+                            <div class="simplebar-height-auto-observer-wrapper">
+                                <div class="simplebar-height-auto-observer"></div>
+                            </div>
+                            <div class="simplebar-mask">
+                                <div class="simplebar-offset" style="right: -17px; bottom: 0px;">
+                                    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                        <div class="simplebar-content" style="padding: 0px;">
+                                            <li class="todo-list-item" *ngFor="let item of visitas" id="nuevas">
+                                                <div class="todo-item-title">
+                                                    <img src="assets\img\logo.png" data-toggle="tooltip" data-placement="top" title="" alt="image" data-original-title="Sarah Taylor">
+                                                    <h3>Nombre : {{item.nombre}}</h3>
+                                                    <p>{{item.dpi}}</p>
+                                                    <p>{{item.personaVista}}</p>
+                                                    <p>{{item.empresa}}</p>
+                                                    <p>{{item.horaEntrada}}</p>
+                                                    <p>{{item.horaSalida}}</p>
+                                                    <p>{{item.descripcion}}</p>
+                                                </div>
+
+                                                <div class="todo-item-action">
+                                                    <a href="#" class="edit"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="#" class="delete"><i class="bx bx-trash"></i></a>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="simplebar-placeholder" style="width: auto; height: 949px;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                            <div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                            <div class="simplebar-scrollbar" style="height: 492px; transform: translate3d(0px, 192px, 0px); display: block;">
+                            </div>
+                        </div>
+                    </ul>
 
 
+                    <ul class="list-wrapper" data-simplebar="init"  *ngIf="proceso == true">
+                        <div class="simplebar-wrapper" style="margin: 0px;">
+                            <div class="simplebar-height-auto-observer-wrapper">
+                                <div class="simplebar-height-auto-observer"></div>
+                            </div>
+                            <div class="simplebar-mask">
+                                <div class="simplebar-offset" style="right: -17px; bottom: 0px;">
+                                    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                        <div class="simplebar-content" style="padding: 0px;">
+                                            <li class="todo-list-item" *ngFor="let item of visitas" id="nuevas">
+                                                <div class="todo-item-title">
+                                                    <img src="assets\img\logo.png" data-toggle="tooltip" data-placement="top" title="" alt="image" data-original-title="Sarah Taylor">
+                                                    <h3>Nombre : {{item.nombre}} Proceso</h3>
+                                                    <p>{{item.dpi}}</p>
+                                                    <p>{{item.personaVista}}</p>
+                                                    <p>{{item.empresa}}</p>
+                                                    <p>{{item.horaEntrada}}</p>
+                                                    <p>{{item.horaSalida}}</p>
+                                                    <p>{{item.descripcion}}</p>
+                                                </div>
+
+                                                <div class="todo-item-action">
+                                                    <a href="#" class="edit"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="#" class="delete"><i class="bx bx-trash"></i></a>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="simplebar-placeholder" style="width: auto; height: 949px;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                            <div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                            <div class="simplebar-scrollbar" style="height: 492px; transform: translate3d(0px, 192px, 0px); display: block;">
+                            </div>
+                        </div>
+                    </ul>
+
+                    <ul class="list-wrapper" data-simplebar="init"  *ngIf="finalizada == true">
+                        <div class="simplebar-wrapper" style="margin: 0px;">
+                            <div class="simplebar-height-auto-observer-wrapper">
+                                <div class="simplebar-height-auto-observer"></div>
+                            </div>
+                            <div class="simplebar-mask">
+                                <div class="simplebar-offset" style="right: -17px; bottom: 0px;">
+                                    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                        <div class="simplebar-content" style="padding: 0px;">
+                                            <li class="todo-list-item" *ngFor="let item of visitas" id="nuevas">
+                                                <div class="todo-item-title">
+                                                    <img src="assets\img\logo.png" data-toggle="tooltip" data-placement="top" title="" alt="image" data-original-title="Sarah Taylor">
+                                                    <h3>Nombre : {{item.nombre}} Finalizada</h3>
+                                                    <p>{{item.dpi}}</p>
+                                                    <p>{{item.personaVista}}</p>
+                                                    <p>{{item.empresa}}</p>
+                                                    <p>{{item.horaEntrada}}</p>
+                                                    <p>{{item.horaSalida}}</p>
+                                                    <p>{{item.descripcion}}</p>
+                                                </div>
+
+                                                <div class="todo-item-action">
+                                                    <a href="#" class="edit"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="#" class="delete"><i class="bx bx-trash"></i></a>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="simplebar-placeholder" style="width: auto; height: 949px;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                            <div class="simplebar-scrollbar" style="transform: translate3d(0px, 0px, 0px); display: none;">
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                            <div class="simplebar-scrollbar" style="height: 492px; transform: translate3d(0px, 192px, 0px); display: block;">
+                            </div>
+                        </div>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Modal -->
@@ -249,39 +234,53 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <form [formGroup]="miFormulario" (ngSubmit)="enviar()">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Ingrese el Nombre"
+                                formControlName="nombre">
+                        </div>
+                        <div class="col">
+                            <input type="text" minlength="13" class="form-control" placeholder="Ingrese el DPI" formControlName="dpi">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="
+                                text" class="form-control" placeholder="Ingrese Persona a quien Visita."
+                                formControlName="personaVista">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Empresa" formControlName="empresa">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="time" class="form-control" placeholder="Hora Entrada "
+                                formControlName="horaEntrada">
+                        </div>
+                        <div class="col">
+                            <input type="time" class="form-control" placeholder="Hora Salida"
+                                formControlName="horaSalida">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <textarea type="text" class="form-control" placeholder="Descripcion"
+                                formControlName="descripcion"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="miFormulario.invalid">Guardar</button>
 
-                <form>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
