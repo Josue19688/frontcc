@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
+import { Usuario } from '../classes/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Socket } from 'ngx-socket-io';
 export class WesocketsService {
 
   public socketStatus=false;
+  public usuario = Usuario;
 
   constructor(private socket:Socket ) {
     this.checkStatus();
@@ -24,4 +26,12 @@ export class WesocketsService {
       this.socketStatus=false;
     });
   }
+
+  loginWS(nombre:string){
+    this.socket.emit('configurar-usuario',{nombre:nombre},(resp:any)=>{
+      console.log(resp)
+    })
+  }
+
+
 }

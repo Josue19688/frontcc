@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { WesocketsService } from 'src/app/services/wesockets.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent {
 
   constructor(private fb:FormBuilder,
     private router:Router,
-    private authService:AuthService
+    private authService:AuthService,
+    private wsService:WesocketsService
   ) { }
 
 login (){
@@ -40,6 +42,7 @@ login (){
       Swal.fire('Bienvenido','Usuario logeado correctamente','success');
       setTimeout(()=>{
         this.router.navigateByUrl('home');
+        this.wsService.loginWS(resp.usuario.nombre);
       },1000);
 
     }else{
