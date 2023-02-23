@@ -63,7 +63,17 @@ export class VisitasService {
     
 
 
-
+/**
+ * 
+ * @param nombre 
+ * @param dpi 
+ * @param personaVista 
+ * @param empresa 
+ * @param horaEntrada 
+ * @param horaSalida 
+ * @param descripcion 
+ * @returns Creacion de items de visitaas
+ */
 
   postVisitas(
     nombre:string, 
@@ -80,15 +90,31 @@ export class VisitasService {
     return this.http.post<VisitasResponse>(url,body);
   }
 
+  /**
+   * 
+   * @returns Lista de visitas creadas a las cuales se agregaran los socket items creados 
+   */
+
   getVisitasDentro():Observable<VisitasResponse>{
     const url ='http://localhost:5000/visita?proceso=DENTRO';
     return this.http.get<VisitasResponse>(url);
   }
 
+  /**
+   * 
+   * @returns Listado de visitas en proceso o dentro de las 
+   * instalaciones
+   */
+
   getVisitasProceso():Observable<VisitasResponse>{
     const url ='http://localhost:5000/visita?proceso=PROCESO';
     return this.http.get<VisitasResponse>(url);
   }
+
+  /**
+   * 
+   * @returns Listado de visitas finalizadas historial 
+   */
 
   getVisitasFinalizadas():Observable<VisitasResponse>{
     const url ='http://localhost:5000/visita?proceso=FINALIZADO';
