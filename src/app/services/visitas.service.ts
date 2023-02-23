@@ -57,7 +57,6 @@ export class VisitasService {
      */
 
     getVisitasSocket(){
-      //console.log(this.wsService.listen('visita-nuevo'));
       return this.wsService.listen('mensaje-nuevo');
     }
 
@@ -81,8 +80,19 @@ export class VisitasService {
     return this.http.post<VisitasResponse>(url,body);
   }
 
-  getVisitas():Observable<VisitasResponse>{
-    const url ='http://localhost:5000/visita';
+  getVisitasDentro():Observable<VisitasResponse>{
+    const url ='http://localhost:5000/visita?proceso=DENTRO';
     return this.http.get<VisitasResponse>(url);
   }
+
+  getVisitasProceso():Observable<VisitasResponse>{
+    const url ='http://localhost:5000/visita?proceso=PROCESO';
+    return this.http.get<VisitasResponse>(url);
+  }
+
+  getVisitasFinalizadas():Observable<VisitasResponse>{
+    const url ='http://localhost:5000/visita?proceso=FINALIZADO';
+    return this.http.get<VisitasResponse>(url);
+  }
+
 }

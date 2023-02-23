@@ -14,6 +14,8 @@ export class VisitasComponent implements OnInit, OnDestroy{
 
   visitaSubscription:Subscription | undefined;
   visitas:Visita[]=[];
+  visitasProceso:Visita[]=[];
+  visitasFinalizadas:Visita[]=[];
 
   dtOptions:any = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -47,20 +49,12 @@ export class VisitasComponent implements OnInit, OnDestroy{
       
     })
 
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-    
-      // Declare the use of the extension in the dom parameter
-      dom: 'Bfrtip',
-      // Configure the buttons
-      buttons: [
-        'columnsToggle',
-        'colvis',
-        'copy',
-        'print',
-        'excel',
-      ]
-    };
+   
+
+    this.getVisitasDentro();
+    this.getVisitasProceso();
+    this.getVisitasFinalizadas();
+
 
   }
 
@@ -96,6 +90,8 @@ export class VisitasComponent implements OnInit, OnDestroy{
     const {nombre, dpi, personaVista,empresa,horaEntrada,horaSalida,descripcion} = this.miFormulario.value;
     
     this.visitaService.sendVisita(nombre, dpi, personaVista,empresa,horaEntrada,horaSalida,descripcion);
+
+
     
     // this.visitaService.postVisitas(nombre, dpi, personaVista,empresa,horaEntrada,horaSalida,descripcion)
     // .subscribe((resp)=>{
@@ -109,10 +105,23 @@ export class VisitasComponent implements OnInit, OnDestroy{
     // })
   }
 
-  // getVisitas(){
-  //   this.visitaService.getVisitas().subscribe((resp)=>{
-  //     this.visitas=resp.visitas;
-  //     this.dtTrigger.next(this.visitas);
-  //   })
-  // }
+  getVisitasDentro(){
+    this.visitaService.getVisitasDentro().subscribe((resp)=>{
+      this.visitas=resp.visitas;
+      //this.dtTrigger.next(this.visitas);
+    })
+  }
+  getVisitasProceso(){
+    this.visitaService.getVisitasProceso().subscribe((resp)=>{
+      this.visitasProceso=resp.visitas;
+      //this.dtTrigger.next(this.visitas);
+    })
+  }
+
+  getVisitasFinalizadas(){
+    this.visitaService.getVisitasFinalizadas().subscribe((resp)=>{
+      this.visitasFinalizadas=resp.visitas;
+      
+    })
+  }
 }
